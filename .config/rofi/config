@@ -1,2 +1,2 @@
 rofi.modi:      drun,run
-rofi.theme:     ~/.config/rofi/themes/default.rasi
+rofi.theme:     ~/.config/rofi/themes/breeze-dark.rasi
