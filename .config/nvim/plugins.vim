@@ -13,6 +13,7 @@ call plug#begin('~/.config/nvim/plugged')
                 \ 'branch': 'next',
                 \ 'do': 'bash install.sh',
                 \ }
+    Plug 'SirVer/ultisnips'
 call plug#end()
 
 " omnisharp-vim
@@ -34,3 +35,8 @@ let g:LanguageClient_serverCommands = {
    \ }
 
 let g:LanguageClient_autoStart = 1
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
