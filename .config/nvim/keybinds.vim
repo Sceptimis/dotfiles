@@ -59,3 +59,8 @@ augroup omnisharp_commands
 
     autocmd FileType cs nnoremap <F2> :OmniSharpRename<CR>
 augroup END
+
+" Vimtex Keybinds
+augroup vimtex_commands
+    autocmd FileType tex nmap <C-o> :VimtexCompile<CR>
+augroup END
