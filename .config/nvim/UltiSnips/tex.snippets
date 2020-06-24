@@ -1,0 +1,281 @@
+global !p
+texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C', 'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS', 'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+
+texIgnoreMathZones = ['texMathText']
+
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+
+ignore = texIgnoreMathZoneIds[0]
+
+def math():
+	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+	try:
+		first = next(i for i in reversed(synstackids) if i in texIgnoreMathZoneIds or i in texMathZoneIds)
+		return first != ignore
+	except StopIteration:
+		return False
+endglobal
+
+
+
+# Templates
+
+snippet temp "Basic template" b
+\documentclass[12pt, a4paper]{article}
+\usepackage[tmargin=0.75in,bmargin=0.75in,lmargin=0.75in,rmargin=0.75in]{geometry}
+\usepackage{parskip}
+\title{$1}
+\author{Lleyton van Sambeeck}
+\date{`date +%F`}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet tempm "Math notes template" b
+\documentclass[12pt, a4paper]{article}
+\usepackage[tmargin=0.75in,bmargin=0.75in,lmargin=0.75in,rmargin=0.75in]{geometry}
+\usepackage{parskip}
+\usepackage{amssymb, amsthm, amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\newtheorem{theorem}{Theorem}
+\title{$1}
+\author{Lleyton van Sambeeck}
+\date{`date +%F`}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+
+
+# Page Snippets
+
+snippet date "Date" i
+`date +%F`
+endsnippet
+
+snippet beg "begin{} / end{}" b
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet sec "section{}" bw
+\section{$1}$0
+endsnippet
+
+snippet subsec "subsection{}" b
+\subsection{$1}$0
+endsnippet
+
+snippet ls "Itemize List" bw
+\begin{itemize}
+	\item{$0}
+\end{itemize}
+endsnippet
+
+snippet la "Enumeration List" bw
+\begin{enumerate}
+	\item{$0}
+\end{enumerate}
+endsnippet
+
+snippet i "List item" bw
+\item{$1}$0
+endsnippet
+
+snippet si "Sub Item" bw
+\subitem{$1}$0
+endsnippet
+	
+snippet it "test" i
+\textit{$1}$0
+endsnippet
+
+snippet bf "Bold" i
+\textbf{$1}$0
+endsnippet
+
+snippet em "Emphasized" i
+\emph{$1}$0
+endsnippet
+
+snippet ul "Underline" i
+\underline{$1}$0
+endsnippet
+
+snippet pb "Page Break" i
+\pagebreak
+endsnippet
+
+snippet ... "ldots" iA
+\ldots
+endsnippet
+
+snippet cc "Short Cite" i
+\shortcite{$1}$0
+endsnippet
+
+
+
+# Math Snippets
+
+snippet im "Inline math" i
+\$$1\$$0
+endsnippet
+
+snippet dm "Display math" b
+\[
+	$1
+\]$0
+endsnippet
+
+snippet adm "Array Display Math" b
+\begin{eqnarray*}
+	\begin{aligned}
+		$1
+	\end{aligned}
+\end{eqnarray*}$0
+endsnippet
+
+context "math()"
+snippet dd "Diagonal Dots" iA
+\ddots
+endsnippet
+
+context "math()"
+snippet vd "Vertical Dots" iA
+\vdots
+endsnippet
+
+context "math()"
+snippet hd "Horizontal Dots" iA
+\hdots
+endsnippet
+
+context "math()"
+snippet x "Times" i
+\times
+endsnippet
+
+context "math()"
+snippet sum "Sum" i
+\sum_{$1}^{$2}$0
+endsnippet
+
+context "math()"
+snippet prod "Product" i
+\prod_{$1}^{$2}$0
+endsnippet
+
+context "math()"
+snippet frac "Fraction" i
+\frac{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet sqrt "Square Root" i
+\sqrt{$1}$0
+endsnippet
+
+context "math()"
+snippet sqrtn "Nth Root" i
+\sqrt[$1]{$2}$0
+endsnippet
+
+context "math()"
+snippet le "Less than or equal to" iA
+\leq
+endsnippet
+
+context "math()"
+snippet >= "Greater than or equal to" iA
+\geq
+endsnippet
+
+context "math()"
+snippet ~= "Approx" iA
+\approx
+endsnippet
+
+context "math()"
+snippet != "Not Equal" iA
+\neq
+endsnippet
+
+context "math()"
+snippet bb "Math Big Bold" i
+\mathbb{$1}$0
+endsnippet
+
+context "math()"
+snippet ooo "Infinity" iA
+\infty
+endsnippet
+
+context "math()"
+snippet tf "Therefore" iA
+\therefore
+endsnippet
+
+context "math()"
+snippet lar "Left Arrow" iA
+\leftarrow
+endsnippet
+
+context "math()"
+snippet rar "Right arrow" iA
+\rightarrow
+endsnippet
+
+context "math()"
+snippet Lar "Left Arrow" iA
+\Leftarrow
+endsnippet
+
+context "math()"
+snippet Rar "Right arrow" iA
+\Rightarrow
+endsnippet
+
+context "math()"
+snippet td "Power" iA
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet bmat "Square Matrix" bwA
+\begin{bmatrix}
+	$1
+\end{bmatrix}$0
+endsnippet
+
+context "math()"
+snippet pmat "Parentheses Matrix" bwA
+\begin{pmatrix}
+	$1
+\end{pmatrix}$0
+endsnippet
+
+context "math()"
+snippet pw "Piecewise Cases" b
+\begin{cases}
+	$1
+\end{cases}$0
+endsnippet
+
+context "math()"
+snippet lm "Limit" iA
+\lim_{$1}$0
+endsnippet
