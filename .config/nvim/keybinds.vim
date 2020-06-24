@@ -44,3 +44,18 @@ augroup fugitive_commands
     autocmd!
     nnoremap <Leader>v :tab Gstatus<CR>
 augroup END
+
+" OmniSharp Keybinds
+augroup omnisharp_commands
+    autocmd!
+
+    autocmd FileType cs nnoremap <Leader>gd :OmniSharpGotoDefinition<CR>
+    autocmd FileType cs nnoremap <Leader>fi :OmniSharpFindImplementations<CR>
+    autocmd FileType cs nnoremap <Leader>fs :OmniSharpFindSymbol<CR>
+    autocmd FileType cs nnoremap <Leader>fu :OmniSharpFindUsages<CR>
+    autocmd FileType cs nnoremap <Leader>fm :OmniSharpFindMembers<CR>
+    autocmd FileType cs nnoremap <Leader>fx :OmniSharpFixUsings<CR>
+    autocmd FileType cs nnoremap <Leader>cc :OmniSharpGlobalCodeCheck<CR>
+
+    autocmd FileType cs nnoremap <F2> :OmniSharpRename<CR>
+augroup END
