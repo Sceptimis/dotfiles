@@ -26,3 +26,7 @@ colorscheme nord
 " Python binary paths
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2.7'
+
+" Load keybinds
+let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+execute 'source ' . s:path . '/keybinds.vim'
