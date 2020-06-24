@@ -6,4 +6,5 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'mhinz/vim-startify'
     Plug 'zefei/vim-wintabs'
     Plug 'zefei/vim-wintabs-powerline'
+    Plug 'tpope/vim-fugitive'
 call plug#end()

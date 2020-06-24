@@ -38,3 +38,9 @@ nnoremap <Leader>S :source %<CR>
 
 " Make Y behave like D
 nnoremap Y y$
+
+" Fugitive Keybinds
+augroup fugitive_commands
+    autocmd!
+    nnoremap <Leader>v :tab Gstatus<CR>
+augroup END
