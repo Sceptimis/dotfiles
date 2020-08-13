@@ -12,8 +12,14 @@ imap <Down>  <NOP>
 imap <Left>  <NOP>
 imap <Right> <NOP>
 
-" Buffer navigation
+" Buffer & Tab navigation
 nnoremap gb :ls<CR>:b<Space>
+nmap <C-h> <Plug>(wintabs_first)
+nmap <C-j> <Plug>(wintabs_next)
+nmap <C-k> <Plug>(wintabs_previous)
+nmap <C-l> <Plug>(wintabs_last)
+nmap <C-w><C-q> <Plug>(wintabs_close)
+nmap <C-t><C-q> <Plug>(wintabs_close_vimtab)
 
 " Command Mode navigation with HJKL
 cmap <C-h> <Left>

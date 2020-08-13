@@ -4,4 +4,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'aurieh/discord.nvim'
     Plug 'mhinz/vim-startify'
+    Plug 'zefei/vim-wintabs'
+    Plug 'zefei/vim-wintabs-powerline'
 call plug#end()
