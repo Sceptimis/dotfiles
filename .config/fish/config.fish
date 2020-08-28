@@ -1,0 +1,21 @@
+# Useful aliases
+alias dot       "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias pacclean  "sudo pacman -Rsn (pacman -Qdtq)"
+alias q         "exit"
+alias v         "$EDITOR"
+
+# Git aliases
+alias gpus      "git push"
+alias gpusf     "git push -f"
+alias gs        "git status"
+alias gl        "git log"
+alias gch       "git checkout"
+alias gbr       "git branch"
+alias gcm       "git commit -m"
+alias ga        "git add"
+alias gau       "git add -u"
+alias grm       "git rm --cached"
+alias gd        "git diff"
+alias gfe       "git fetch"
+alias gre       "git reset"
+alias gcl       "git clone"
