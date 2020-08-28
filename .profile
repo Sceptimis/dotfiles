@@ -25,3 +25,6 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export GOPATH="$XDG_DATA_HOME/go"
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+
+# Set the rate at which characters are repeated
+xset r rate 300 50
