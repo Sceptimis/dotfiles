@@ -28,3 +28,6 @@ export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
 # Set the rate at which characters are repeated
 xset r rate 300 50
+
+# Autostart programs in $XDG_CONFIG_HOME/autostart
+dex -a
