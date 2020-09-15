@@ -20,6 +20,9 @@ set list listchars=tab:——,trail:·
 set termguicolors
 set undofile
 
+" Set nord colorscheme
+colorscheme nord
+
 " Python binary paths
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2.7'
